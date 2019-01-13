@@ -17,7 +17,11 @@ class App extends Component {
   };
 
   chooseFriend = id => {
+    
+    if (this.setState({clicked: false}));
+    this.setState({clicked: true});
     this.handleIncrement();
+    
     
    };
  
