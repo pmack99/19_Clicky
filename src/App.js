@@ -5,7 +5,14 @@ import Title from "./components/Title";
 import friends from "./friends.json";
 
 
+function shuffleFriends(array) {
+  for (let i = array.length -1; i > 0; i--) {
+       let j = Math.floor(Math.random() * (i +1));
+       [array[i], array[j]] = [array[j], array[i]];
 
+  }
+  return array;
+}
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -17,14 +24,6 @@ class App extends Component {
     clicked: false,
   };
 
-shuffleFriends = (array) =>{
-    for (let i = array.length -1; i > 0; i--) {
-         let j = Math.floor(Math.random() * (i +1));
-         [array[i], array[j]] = [array[j], array[i]];
-  
-    }
-    return array;
-  }
 
   handleShuffle = () =>{
     let shuffled = shuffleFriends(friends);
@@ -47,6 +46,7 @@ shuffleFriends = (array) =>{
        status: "Play again",
        clicked: []
      })
+     this.handleShuffle();
    }
  
    handleIncrement = () =>{
