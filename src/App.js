@@ -24,8 +24,12 @@ class App extends Component {
    handleIncrement = () =>{
      const score = this.state.curScore +1;
      this.setState({
-       curScore: score});
-     }
+       curScore: score
+    });
+    if (score >= this.state.topScore){
+      this.setState({ topScore: score});
+    }
+    }
    
  
 
