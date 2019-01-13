@@ -32,17 +32,16 @@ class App extends Component {
 
   chooseFriend = id => {
     
-    // if (this.setState({clicked: false}));
     this.setState({clicked: true});
     this.handleIncrement();
-    
+
    };
 
    resetGame =()=>{
 
      this.setState({
        curScore: 0,
-       status: "Play again",
+       status: "Play Again",
        clicked: false,
        friends
      })
@@ -54,7 +53,7 @@ class App extends Component {
      this.render();
      this.setState({
        curScore: score,
-       status: "Correct"
+       status: "The man who passes the sentence should swing the sword."
        
     });
     if (score >= this.state.topScore){
