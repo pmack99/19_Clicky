@@ -6,20 +6,28 @@ import friends from "./friends.json";
 
 
 
+
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
     friends,
     curScore: 0,
-    topScore: 5
+    topScore: 5,
+    clicked: false
   };
 
-  removeFriend = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
-  };
+  chooseFriend = id => {
+    this.handleIncrement();
+    
+   };
+ 
+   handleIncrement = () =>{
+     const score = this.state.curScore +1;
+     this.setState({
+       curScore: score});
+     }
+   
+ 
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
@@ -27,26 +35,26 @@ class App extends Component {
       <Wrapper>
         <div class="container">
         <div class="jumbotron">
+        
         <Title> Game of Thrones Clicky Game
           <br></br>
         <p>Current Score: {this.state.curScore} | Top Score: {this.state.topScore}</p>
-        </Title> </div>  </div>  
-       
-        
+        </Title> 
+        </div>
+        </div>
+
         {this.state.friends.map(friend => (
           <FriendCard
-            removeFriend={this.removeFriend}
+            chooseFriend={this.chooseFriend}
+            handleIncrement={this.handleIncrement}
             id={friend.id}
             key={friend.id}
             name={friend.name}
             image={friend.image}
             
           />
+          
         ))}
-        
-        
-        
-       
       </Wrapper>
     );
   }
