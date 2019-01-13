@@ -5,7 +5,8 @@ function FriendCard(props) {
   return (
     <div className="card">
       <div className="img-container">
-        <img alt={props.name} src={props.image} />
+        <img alt={props.name} src={props.image} 
+        onClick={() => props.chooseFriend(props.id)} />
       </div>
       <div className="content">
         <ul>
@@ -15,8 +16,7 @@ function FriendCard(props) {
 
         </ul>
       </div>
-      <span onClick={() => props.chooseFriend(props.id)} className="clicked" >
-      </span>
+   
     </div>
   );
 }
