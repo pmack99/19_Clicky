@@ -28,6 +28,7 @@ class App extends Component {
   handleShuffle = () =>{
     let shuffled = shuffleFriends(friends);
     this.setState({friends: shuffled});
+    this.render();
   }
 
   chooseFriend = id => {
@@ -42,8 +43,7 @@ class App extends Component {
      this.setState({
        curScore: 0,
        status: "Play Again",
-       clicked: false,
-       friends
+       clicked: false
      })
      this.handleShuffle();
    }
@@ -53,13 +53,12 @@ class App extends Component {
      this.render();
      this.setState({
        curScore: score,
-       status: "The man who passes the sentence should swing the sword."
+       status: "Correct"
        
     });
     if (score >= this.state.topScore){
       this.setState({ topScore: score});
       this.handleShuffle();
-      this.render();
     }
     if (score >= 12){
       this.setState({
