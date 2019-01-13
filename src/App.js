@@ -4,10 +4,14 @@ import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
 
+
+
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    friends
+    friends,
+    curScore: 0,
+    topScore: 5
   };
 
   removeFriend = id => {
@@ -21,10 +25,14 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>Game of Thrones Clicky Game</Title>
-        <h2>Score 0 | High Score 0</h2>
-        <br>
-        </br>
+        <div class="container">
+        <div class="jumbotron">
+        <Title> Game of Thrones Clicky Game
+          <br></br>
+        <p>Current Score: {this.state.curScore} | Top Score: {this.state.topScore}</p>
+        </Title> </div>  </div>
+       
+        
         {this.state.friends.map(friend => (
           <FriendCard
             removeFriend={this.removeFriend}
@@ -36,6 +44,7 @@ class App extends Component {
             
           />
         ))}
+       
       </Wrapper>
     );
   }
