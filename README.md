@@ -1,37 +1,65 @@
-# Conditional Render
+# Clicky Game
 
-In this activity we will render one of four different components based upon our component's state.
+## Overview
 
-## Instructions
+For this assignment, you'll create a memory game with React. This assignment will require you to break up your application's UI into components, manage component state, and respond to user events.
 
-* Replace your application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `yarn start`.
+### Submission on BCS
 
-* This application uses Bootstrap, so make sure you're including the Bootstrap CSS CDN.
-  
-  ```html
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
-  ```
+* **This assignment must be deployed.** * Please submit both the deployed GitHub Pages link to your homework AND the link to the Github Repository!
 
-* Navigate to [localhost:3000](http://localhost:3000) in your web browser and take a moment to study the rendered application.
+### Instructions
 
-  * At the top of the page there's a Bootstrap NavTabs component. Whenever a nav element is clicked, the nav element goes into an "active" state. Whenever a nav item is clicked, it sets `this.state.currentPage` inside of `PortfolioContainer` to the selected navigation item.
+1. Check out the [example solution](https://clicky-game.netlify.com/) and study the app's basic functionality.
 
-* Now add code to `PortfolioContainer` so that depending on the currently selected page, a different component is rendered underneath the `NavTabs` component. Example:
+2. Create a new React application using [Create React App](https://github.com/facebookincubator/create-react-app).
 
-  * Render the `About` component when `this.state.currentPage === "About"`
-  
-  * Render the `Blog` component when `this.state.currentPage === "Blog"`
+3. The application should render different images (of your choice) to the screen. Each image should listen for click events.
 
-  * Render the `Contact` component when `this.state.currentPage === "Contact"`
+4. The application should keep track of the user's score. The user's score should be incremented when clicking an image for the first time. The user's score should be reset to 0 if they click the same image more than once.
 
-  * Render the `Home` component when `this.state.currentPage === "Home"`
+5. Every time an image is clicked, the images rendered to the page should shuffle themselves in a random order.
 
-### Bonus
+6. Once the user's score is reset after an incorrect guess, the game should restart.
 
-* Inside of `src/components/NavTabs.js`, add code so that the `a` tag for the `currentPage` has the "active" class. This component receives the `currentPage` via props.
+7. When complete, the application should be deployed to Github Pages. See the README generated with Create React App for instructions on deploying the application to Github Pages.
 
-### Hints
+- - -
 
-* Refer to [React's Documentation on Conditional Rendering](https://facebook.github.io/react/docs/conditional-rendering.html) if you get stuck.
+#### Minimum Requirements
 
-* Consider defining a method which returns a different component based on the value of `this.state.currentPage`.
+* **This assignment must be deployed.** Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Hosting on Github Pages and adding a README.md are required for this homework. In addition, add this homework to your portfolio. More information can be found below.
+
+- - -
+
+#### Hints
+
+* Begin by building a non-functioning static version for your Clicky Game. Then work on making the game interactive.
+
+### Reminder: Submission on BCS
+
+* Please submit both the deployed GitHub Pages link to your homework AND the link to the Github Repository!
+
+- - -
+
+### Create a README.md
+
+Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
+
+* [About READMEs](https://help.github.com/articles/about-readmes/)
+
+* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+- - -
+
+### Add To Your Portfolio
+
+After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
+
+- - -
+
+#### One More Thing
+
+If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
+
+**Good Luck!**
