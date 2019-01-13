@@ -13,6 +13,7 @@ class App extends Component {
     friends,
     curScore: 0,
     topScore: 5,
+    status: "",
     clicked: false
   };
 
@@ -24,15 +25,35 @@ class App extends Component {
     
     
    };
+
+   resetGame =()=>{
+
+     this.setState({
+       curScore: 0,
+       status: "Play again",
+       clicked: []
+     })
+   }
  
    handleIncrement = () =>{
      const score = this.state.curScore +1;
      this.setState({
-       curScore: score
+       curScore: score,
+       status: "Correct"
     });
     if (score >= this.state.topScore){
       this.setState({ topScore: score});
     }
+    if (score >= 12){
+      this.setState({
+        status: "You will sit on the IRON THRONE",
+        topScore: this.state.topScore,
+        clicked: []
+    });
+    
+    
+    }
+    
     }
    
  
@@ -47,6 +68,7 @@ class App extends Component {
         <Title> Game of Thrones Clicky Game
           <br></br>
         <p>Current Score: {this.state.curScore} | Top Score: {this.state.topScore}</p>
+        <p> Your guess?  -  {this.state.status}</p>
         </Title> 
         </div>
         </div>
