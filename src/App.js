@@ -30,7 +30,7 @@ class App extends Component {
         <Title> Game of Thrones Clicky Game
           <br></br>
         <p>Current Score: {this.state.curScore} | Top Score: {this.state.topScore}</p>
-        </Title> </div>  </div>
+        </Title> </div>  </div>  
        
         
         {this.state.friends.map(friend => (
@@ -40,10 +40,12 @@ class App extends Component {
             key={friend.id}
             name={friend.name}
             image={friend.image}
-            occupation={friend.occupation}
             
           />
         ))}
+        
+        
+        
        
       </Wrapper>
     );
