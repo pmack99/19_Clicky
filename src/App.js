@@ -19,7 +19,7 @@ class App extends Component {
   state = {
     friends,
     curScore: 0,
-    topScore: 3,
+    topScore: 0,
     status: "",
     clicked: false,
   };
@@ -32,10 +32,9 @@ class App extends Component {
 
   chooseFriend = id => {
     
-    if (this.setState({clicked: false}));
+    // if (this.setState({clicked: false}));
     this.setState({clicked: true});
     this.handleIncrement();
-    
     
    };
 
@@ -44,19 +43,24 @@ class App extends Component {
      this.setState({
        curScore: 0,
        status: "Play again",
-       clicked: []
+       clicked: false,
+       friends
      })
      this.handleShuffle();
    }
  
    handleIncrement = () =>{
      const score = this.state.curScore +1;
+     this.render();
      this.setState({
        curScore: score,
        status: "Correct"
+       
     });
     if (score >= this.state.topScore){
       this.setState({ topScore: score});
+      this.handleShuffle();
+      this.render();
     }
     if (score >= 12){
       this.setState({
