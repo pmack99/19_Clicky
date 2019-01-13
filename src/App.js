@@ -12,10 +12,24 @@ class App extends Component {
   state = {
     friends,
     curScore: 0,
-    topScore: 5,
+    topScore: 3,
     status: "",
-    clicked: false
+    clicked: false,
   };
+
+shuffleFriends = (array) =>{
+    for (let i = array.length -1; i > 0; i--) {
+         let j = Math.floor(Math.random() * (i +1));
+         [array[i], array[j]] = [array[j], array[i]];
+  
+    }
+    return array;
+  }
+
+  handleShuffle = () =>{
+    let shuffled = shuffleFriends(friends);
+    this.setState({friends: shuffled});
+  }
 
   chooseFriend = id => {
     
@@ -47,15 +61,16 @@ class App extends Component {
     if (score >= 12){
       this.setState({
         status: "You will sit on the IRON THRONE",
-        topScore: this.state.topScore,
+        topScore: 12,
         clicked: []
     });
-    
-    
+    if (score === 13){
+   this.resetGame();
+    };
     }
-    
-    }
+}
    
+
  
 
   // Map over this.state.friends and render a FriendCard component for each friend object
@@ -67,7 +82,7 @@ class App extends Component {
         
         <Title> Game of Thrones Clicky Game
           <br></br>
-        <p>Current Score: {this.state.curScore} | Top Score: {this.state.topScore}</p>
+        <p>Current Score:  {this.state.curScore}  |  Top Score: {this.state.topScore}</p>
         <p> Your guess?  -  {this.state.status}</p>
         </Title> 
         </div>
@@ -77,6 +92,7 @@ class App extends Component {
           <FriendCard
             chooseFriend={this.chooseFriend}
             handleIncrement={this.handleIncrement}
+            handleShuffle = {this.handleShuffle}
             id={friend.id}
             key={friend.id}
             name={friend.name}
