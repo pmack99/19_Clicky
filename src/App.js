@@ -85,7 +85,7 @@ class App extends Component {
         <Title> Game of Thrones Clicky Game
           <br></br>
         <p>Current Score:  {this.state.curScore}  |  Top Score: {this.state.topScore}</p>
-        <p> Your guess?  -  {this.state.status}</p>
+        <p>  {this.state.status} </p>
         </Title> 
         </div>
         </div>
