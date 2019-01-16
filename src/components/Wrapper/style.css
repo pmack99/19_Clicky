@@ -2,10 +2,11 @@
   padding-top: 40px;
   background: #ECEFF1;
   background-image: url(https://www.sketchbook.com/blog/wp-content/uploads/2017/08/drogon-by-monika-zagrobelna.png);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
+  height: 1200px;
+  display: inline-flex;
+  flex-flow: wrap;
   padding: 20px;
   justify-content: space-around;
   align-content: flex-start;

@@ -21,7 +21,7 @@ class App extends Component {
     curScore: 0,
     topScore: 0,
     status: "",
-    clicked: false,
+    clickArray: []
   };
 
 
@@ -31,29 +31,63 @@ class App extends Component {
     this.render();
   }
 
+
   chooseFriend = id => {
+    console.log({ id });
+
+      // Filter for the clicked match
+      const clickedMatch = friends.filter(friend => friend.id === id);
+
+      if (clickedMatch ){
+
+          this.resetGame();
+          }
     
-    this.setState({clicked: true});
-    this.handleIncrement();
 
-   };
+   } else  {
 
-   resetGame =()=>{
+    clickArray.push(this.state.id);
+   }
+
+
+
+  
+
+  
+
+//    chooseFriend = id => {
+//     if (! this.state.clicked) {
+//       this.setState({ clicked: this.state.clicked.id });
+//        this.handleIncrement();
+//     } else {
+      
+//       this.resetGame();
+//     }
+//  };
+
+winGame =()=>{
+
+  this.setState({
+    curScore: 0,
+    status: "You won! - Play Again"
+  })
+  this.handleShuffle();
+}
+
+
+resetGame =()=>{
 
      this.setState({
        curScore: 0,
-       status: "Play Again",
-       clicked: false
+       status: "Wrong answer - Play Again"
      })
      this.handleShuffle();
    }
  
-   handleIncrement = () =>{
+handleIncrement = () =>{
      const score = this.state.curScore +1;
-     this.render();
      this.setState({
-       curScore: score,
-       status: "Correct"
+       curScore: score
        
     });
     if (score >= this.state.topScore){
@@ -64,16 +98,14 @@ class App extends Component {
       this.setState({
         status: "You will sit on the IRON THRONE",
         topScore: 12,
-        clicked: []
+        clicked: false
     });
     if (score === 13){
-   this.resetGame();
+         this.winGame();
     };
     }
 }
    
-
- 
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
@@ -86,23 +118,24 @@ class App extends Component {
           <br></br>
         <p>Current Score:  {this.state.curScore}  |  Top Score: {this.state.topScore}</p>
         <p>  {this.state.status} </p>
-        </Title> 
+        </Title>   </div>
         </div>
-        </div>
+      
 
         {this.state.friends.map(friend => (
           <FriendCard
-            chooseFriend={this.chooseFriend}
+            chooseFriend={() => this.chooseFriend(friend.id)}
             handleIncrement={this.handleIncrement}
             handleShuffle = {this.handleShuffle}
             id={friend.id}
             key={friend.id}
             name={friend.name}
             image={friend.image}
-            
+            clicked={friend.clicked}
           />
           
         ))}
+      
       </Wrapper>
     );
   }
