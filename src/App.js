@@ -35,19 +35,18 @@ class App extends Component {
   chooseFriend = id => {
     console.log({ id });
 
-      // Filter for the clicked match
       const clickedMatch = friends.filter(friend => friend.id === id);
 
-      if (clickedMatch ){
-
-          this.resetGame();
-          }
-    
-
-   } else  {
-
-    clickArray.push(this.state.id);
+      if (clickedMatch)
+        this.resetGame();
+      else {
+        this.setState({
+          clickArray: [...this.state.clickArray, id]
+        })
+      }
    }
+
+   };
 
 
 
