@@ -14,6 +14,8 @@ function shuffleFriends(array) {
   return array;
 }
 
+      
+
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
@@ -25,44 +27,29 @@ class App extends Component {
   };
 
 
-  handleShuffle = () =>{
+handleShuffle = () =>{
     let shuffled = shuffleFriends(friends);
     this.setState({friends: shuffled});
     this.render();
   }
 
 
-  chooseFriend = id => {
+chooseFriend = id => {
     console.log({ id });
+     
+    const clickedMatch = friends.filter(friend => friend.id === id);
+    console.log({clickedMatch});
+     
+           if (clickedMatch)
+             this.resetGame();
+             
+           else {
+             this.setState({
+               clickArray: [...this.state.clickArray, id]
+             })
+           }
+        }
 
-      const clickedMatch = friends.filter(friend => friend.id === id);
-
-      if (clickedMatch)
-        this.resetGame();
-      else {
-        this.setState({
-          clickArray: [...this.state.clickArray, id]
-        })
-      }
-   }
-
-   };
-
-
-
-  
-
-  
-
-//    chooseFriend = id => {
-//     if (! this.state.clicked) {
-//       this.setState({ clicked: this.state.clicked.id });
-//        this.handleIncrement();
-//     } else {
-      
-//       this.resetGame();
-//     }
-//  };
 
 winGame =()=>{
 
@@ -103,11 +90,10 @@ handleIncrement = () =>{
          this.winGame();
     };
     }
-}
+};
    
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
-  render() {
+ render() { 
     return (
       <Wrapper>
         <div class="container">
@@ -134,10 +120,13 @@ handleIncrement = () =>{
           />
           
         ))}
-      
       </Wrapper>
+  
     );
-  }
+  } 
 }
 
+
+
 export default App;
+
