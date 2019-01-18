@@ -37,17 +37,21 @@ handleShuffle = () =>{
 chooseFriend = id => {
     console.log({ id });
      
-    const clickArray = friends.filter(friend => friend.id === id);
-    console.log({clickArray});
+    // let clickArray = friends.filter(friend => friend.id === id);
+    // console.log({clickArray});
      
-        if (clickArray)
-            //  this.resetGame();
-             this.handleIncrement();
+        if (this.state.clickArray.includes(id))
+             this.resetGame();
+             
   else {
              this.setState({
                clickArray: [...this.state.clickArray, id]
+               
              })
+             this.handleIncrement();
+             
            }
+           
         }
 
 
@@ -55,7 +59,8 @@ winGame =()=>{
 
   this.setState({
     curScore: 0,
-    status: "You won! - Play Again"
+    status: "You won! - Play Again",
+    clickArray: []
   })
   this.handleShuffle();
 }
@@ -65,7 +70,8 @@ resetGame =()=>{
 
      this.setState({
        curScore: 0,
-       status: "Wrong answer - Play Again"
+       status: "Wrong answer - Play Again",
+       clickArray: []
      })
      this.handleShuffle();
    }
@@ -83,8 +89,8 @@ handleIncrement = () =>{
     if (score >= 12){
       this.setState({
         status: "You will sit on the IRON THRONE",
-        topScore: 12,
-        clicked: false
+        topScore: 12
+        
     });
     if (score === 13){
          this.winGame();
