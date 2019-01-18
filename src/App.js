@@ -37,13 +37,13 @@ handleShuffle = () =>{
 chooseFriend = id => {
     console.log({ id });
      
-    const clickedMatch = friends.filter(friend => friend.id === id);
-    console.log({clickedMatch});
+    const clickArray = friends.filter(friend => friend.id === id);
+    console.log({clickArray});
      
-           if (clickedMatch)
-             this.resetGame();
-             
-           else {
+        if (clickArray)
+            //  this.resetGame();
+             this.handleIncrement();
+  else {
              this.setState({
                clickArray: [...this.state.clickArray, id]
              })
