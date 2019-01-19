@@ -2,7 +2,7 @@
   "name": "class-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/pmack99/19_Clicky",
+  "homepage": "https://pmack99.github.io/19_Clicky/",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^2.0.1",
