@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/pmack99/19_Clicky/precache-manifest.3134f5238c46f8dd4757d4aa4e0e0dcc.js"
+  "/19_Clicky/precache-manifest.23c45a516071ae1250a958329114505e.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/pmack99/19_Clicky/index.html", {
+workbox.routing.registerNavigationRoute("/19_Clicky/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
